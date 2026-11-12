@@ -23,7 +23,9 @@ help:
 	@echo "verify-crawlee  check the crawlee(*) columns against a real crawler over real HTTP"
 	@echo "browser-stacks  the browser-driven stacks (Playwright, Selenium, scrapy-playwright...) over real HTTP"
 	@echo "pinned-stacks   other versions: Scrapy 2.19.0 on w3lib 2.4.1 and 2.5.0, the Frostwork checkout"
-	@echo "export-site     SITE=<dir>: write the public corpus to <dir>/data/cases.json for mojibake.wtf"
+	@echo ""
+	@echo "Maintaining mojibake.wtf (contributors can ignore these):"
+	@echo "export-site     SITE=<dir>: write the public corpus to <dir>/data/cases.json"
 	@echo "verify-live     fetch every public case from $(LIVE) and fail on any byte or header change"
 
 bootstrap: py-bootstrap js-bootstrap java-bootstrap

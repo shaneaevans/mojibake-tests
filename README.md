@@ -1,12 +1,13 @@
 # mojibake-tests
 
-A browser and a scraper can read the same HTTP response and get different text. This repo measures
-that gap. It has 48 test cases, each an exact set of bytes with an exact `Content-Type`, served over
-real HTTP. It reads each one with Chrome and with 25 scraping stacks in Python, JavaScript and Java,
-and reports every place they disagree.
+A test suite for scrapers. A browser and a scraper can read the same HTTP response and get
+different text, and this repo measures that gap. It has 48 test cases, each an exact set of bytes
+with an exact `Content-Type`, served over real HTTP. It reads each one with Chrome and with 25
+scraping stacks in Python, JavaScript and Java, and reports every place they disagree.
 
-The public version is [mojibake.wtf](https://mojibake.wtf). It serves every case at its own URL, so
-you can point your own scraper at it.
+[mojibake.wtf](https://mojibake.wtf) serves the public cases from this repo, each at its own URL, so
+you can point your own scraper at them without cloning anything. The website's code is not in this
+repo.
 
 ## Why it matters
 
@@ -79,8 +80,8 @@ make verify-crawlee     # checks the Crawlee columns against real Crawlee crawls
 
 `make browser-stacks` needs `requirements-browsers.txt` and `playwright install chromium firefox
 webkit`. `make pinned-stacks` measures a Frostwork checkout at `../frostwork`, or wherever
-`FROSTWORK_CHECKOUT` points, and keeps the recorded column if there is none. `make verify-live`
-fetches every public case from mojibake.wtf and fails if a byte or a header has changed.
+`FROSTWORK_CHECKOUT` points, and keeps the recorded column if there is none. `make export-site` and
+`make verify-live` are for whoever maintains mojibake.wtf, and a contributor can ignore them.
 
 The browser column records how each cell was loaded, the browser build and locale, and a
 fingerprint of the bytes it measured. `make summary` refuses to grade a cell whose fingerprint no
