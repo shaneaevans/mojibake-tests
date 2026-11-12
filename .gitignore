@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+server.log
+js/node_modules/
+java/build/
+java/lib/*.jar
+storage/
+.pinned/
+.cloudflare/
+.DS_Store

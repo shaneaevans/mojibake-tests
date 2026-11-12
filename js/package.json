@@ -1,0 +1,17 @@
+{
+  "name": "mojibake-tests-js",
+  "private": true,
+  "type": "commonjs",
+  "description": "JS reader bench: every pin is a measurement subject (see ../requirements.txt)",
+  "dependencies": {
+    "cheerio": "1.2.0",
+    "crawlee": "3.18.2",
+    "html-encoding-sniffer": "7.0.0",
+    "htmlparser2": "12.0.0",
+    "iconv-lite": "0.7.3",
+    "jsdom": "31.0.0",
+    "playwright": "1.65.0",
+    "puppeteer": "25.16.0",
+    "whatwg-encoding": "3.1.1"
+  }
+}

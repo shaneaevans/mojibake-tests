@@ -1,0 +1,36 @@
+# The reader bench. Every pin here IS a measurement subject: a bump moves a column, because these
+# libraries disagree with each other (and with the browser) about what the bytes say. Pin, then
+# re-measure deliberately.
+parsel==1.12.1
+lxml==6.1.3
+cssselect==1.6.0
+w3lib==2.6.0
+beautifulsoup4==4.15.0
+soupsieve==4.0.1
+selectolax==1.0.2
+requests==2.34.2
+charset-normalizer==3.5.2
+# The HTML5 spec reference parser. It settles "is the browser doing something odd here, or is the
+# scraper wrong?" in one run, which is the question this whole lab keeps asking.
+html5lib==1.1
+
+# Crawlee for Python — a framework column, not a library one: its BeautifulSoup and Parsel crawlers
+# each decode in their own parser, so they answer differently from the bare libraries above and from
+# each other. It resolves against every pin above unchanged; if a future version stops doing so,
+# pip says so here rather than silently moving a column.
+crawlee[beautifulsoup,parsel]==1.11.1
+scrapy==2.20.0
+
+# Frostwork is a measurement subject three times over. It is a column of its own (`frostwork`), and since
+# Scrapy 2.20 / w3lib 2.6 / web-poet 0.25 it is also a hard dependency of all three: w3lib.encoding calls
+# frostwork.encoding, so it decides the encoding the `scrapy` column (Scrapy on Parsel) decodes with,
+# and web-poet extracts declared selectors with it (`web-poet+frostwork`). Pinned like the rest.
+frostwork==0.2.2
+web-poet==0.25.0
+
+# An unreleased Frostwork checkout is no longer the bench's column: Scrapy needs a release
+# on PyPI, and an editable install of a branch would move the `scrapy` column too.
+#
+# The bench is not Python-only. The other two runtimes pin their measurement subjects in their own
+# places, on the same terms: `js/package.json` + `js/package-lock.json` (cheerio, jsdom, iconv-lite,
+# crawlee) and the Makefile's JSOUP_VERSION / GSON_VERSION.

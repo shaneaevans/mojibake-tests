@@ -1,0 +1,8 @@
+# The browser-driven stacks: every one of these renders the page in a real engine, then either
+# reads the DOM in the page or serialises it and re-parses it. Heavy (each pulls a browser build),
+# so kept apart from requirements.txt. `make browser-stacks` measures them.
+# Pins are measurement subjects, the same as requirements.txt.
+playwright==1.64.1
+scrapy-playwright==0.0.48
+selenium==4.52.0
+crawlee[playwright]==1.11.1
